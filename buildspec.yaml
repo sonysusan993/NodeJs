@@ -1,0 +1,26 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies.....
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the dist folder...
+      - npm build
+  post_build:
+    commands:
+      - echo Build completed on `date`..
+artifacts:
+  files:
+    - scripts/install.sh
+    - scripts/application_start.sh
+    - appspec.yml
+    - db.js
+    - index.js    
+    - package-lock.json
+    - package.json
+    - .env
+    - node_modules/**/*
+    

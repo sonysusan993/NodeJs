@@ -1,0 +1,21 @@
+version: 0.0
+os: linux 
+files:
+  - source: /
+    destination: /home/ec2-user/NodeJs
+    overwrite: true
+permissions:
+  - object: /home/ec2-user/NodeJs/scripts
+    owner: root
+    mode: 777
+    type:
+      - directory
+hooks:
+  Install:
+    - location: scripts/install.sh
+      timeout: 10
+      runas: root
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      timeout: 30
+      runas: root
